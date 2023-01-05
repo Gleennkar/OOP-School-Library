@@ -7,7 +7,7 @@ class Person < Nameable
   attr_accessor :name, :age
 
   def initialize(age, name = 'Unknown', parent_permission: true)
-    super ()
+    super age, name, parent_pemission
     @id = Random.rand(1..100)
     @name = name
     @age = age
@@ -18,7 +18,7 @@ class Person < Nameable
     of_age || @parent_permission
   end
 
-  def correct_name 
+  def correct_name
     @name
   end
 
