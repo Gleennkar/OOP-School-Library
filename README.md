@@ -35,7 +35,7 @@
 
 # 📖  OOP-School-Librar <a name="about-project"></a>
 
-**OOP-School-Library** is a project from the Microverse curriculum in the Ruby module. It's an app for keeping track of the books borrowed from a library.
+**OOP-School-Library** is a project from the Microverse curriculum in the Ruby module. It's an app for keeping track of the books borrowed from a library, adding associates within classes and objects.
 
 ## 🛠 Built With <a name="built-with"></a>
 
