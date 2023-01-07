@@ -15,3 +15,4 @@ def main
   end
   puts 'You Exited the App'
 end
+main.run
