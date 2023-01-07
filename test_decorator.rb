@@ -1,6 +1,6 @@
-require_relative '.trimmer_decorator'
-require_relative '.person'
-require_relative '.capitalize_decorator'
+require_relative 'trimmer_decorator'
+require_relative 'person'
+require_relative 'capitalize_decorator'
 
 person = Person.new(10, 'Joy')
 p person.correct_name

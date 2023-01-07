@@ -1,5 +1,5 @@
-require_relative '.app'
-require_relative '.switch'
+require_relative 'app'
+require_relative 'switch'
 
 def main
   students_teachers = []

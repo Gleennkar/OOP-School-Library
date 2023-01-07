@@ -1,4 +1,4 @@
-require_relative '.app'
+require_relative 'app'
 
 def switch_options(option, arr_person, arr_books, rentals)
   app = App.new
