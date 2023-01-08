@@ -1,11 +1,10 @@
 require_relative 'person'
 require_relative 'classroom'
-
 class Student < Person
   attr_accessor :classroom
 
-  def initialize(classroom, age, name = 'Unknown', parent_permission: true)
-    super(age, name, parent_permission)
+  def initialize(age, classroom, name: 'Unknown', parent_permission: true)
+    super(age, name: name, parent_permission: parent_permission)
     @classroom = classroom
   end
 
@@ -18,3 +17,5 @@ class Student < Person
     '¯\(ツ)/¯'
   end
 end
+student1 = Student.new(1, 1, name: 'asd', parent_permission: true)
+puts student1.name

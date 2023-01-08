@@ -6,9 +6,11 @@ require_relative 'rentals'
 class App
   private
 
-  def create_student(arr_person)
+  def create_student(_arr_person)
     print 'Age: '
     age = gets.chomp.to_i
+    print 'Classroom: '
+    classroom = gets.chomp.to_i
     print 'Name: '
     name = gets.chomp
     print 'Has parent permision? [Y/N]: '
@@ -16,6 +18,7 @@ class App
     until %w[Y N].include?(get_permision)
       puts 'Please Enter valid permision'
       get_permision = gets.chomp.upcase
+      
     end
     case get_permision
     when 'Y'
@@ -23,10 +26,14 @@ class App
     when 'N'
       permision = false
     end
-    new_student = Student.new(age, name, permision)
-    arr_person.push(Student.new(age, name, permision)) unless arr_person.include?(Student.new(age, name, permision))
-    print "\n Student with Name: ", new_student.name, ' Permision: ', new_student.can_use_services, ' Age: ',
-          new_student.age, " created successfully\n\n"
+    new_student = Student.new(age, classroom, name: name, parent_permission: permision)
+    puts 'Student Created successufully'
+    #   arr_person.push(Student.new(age, classroom, name: name, parent_permission: permision))
+    # unless arr_person.include?(
+    #     age, classroom, name: name, parent_permission: permision
+    #   )
+    #   print "\n Student with Name: ", new_student.name, ' Permision: ', new_student.can_use_services, ' Age: ',
+    #         new_student.age, " created successfully\n\n"
   end
 
   def create_teacher(arr_person)
