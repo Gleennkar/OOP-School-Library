@@ -2,11 +2,10 @@ require_relative 'teacher'
 require_relative 'student'
 require_relative 'books'
 require_relative 'rentals'
-
 class App
   private
 
-  def create_student(_arr_person)
+  def create_student(arr_person)
     print 'Age: '
     age = gets.chomp.to_i
     print 'Classroom: '
@@ -18,7 +17,7 @@ class App
     until %w[Y N].include?(get_permision)
       puts 'Please Enter valid permision'
       get_permision = gets.chomp.upcase
-      
+
     end
     case get_permision
     when 'Y'
@@ -27,13 +26,16 @@ class App
       permision = false
     end
     new_student = Student.new(age, classroom, name: name, parent_permission: permision)
+    puts arr_person
     puts 'Student Created successufully'
-    #   arr_person.push(Student.new(age, classroom, name: name, parent_permission: permision))
-    # unless arr_person.include?(
-    #     age, classroom, name: name, parent_permission: permision
-    #   )
-    #   print "\n Student with Name: ", new_student.name, ' Permision: ', new_student.can_use_services, ' Age: ',
-    #         new_student.age, " created successfully\n\n"
+    unless arr_person.include?(Student.new(
+                                 age, classroom, name: name, parent_permission: permision
+                               ))
+      arr_person.push(Student.new(age, classroom, name: name,
+                                                  parent_permission: permision))
+    end
+    print "\n Student with Name: ", new_student.name, ' Age: ',
+          new_student.age, " created successfully\n\n"
   end
 
   def create_teacher(arr_person)
@@ -43,11 +45,9 @@ class App
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp.downcase
-    new_teacher = Teacher.new(age, specialization, name)
-    unless arr_person.include?(Teacher.new(age, specialization,
-                                           name))
-      arr_person.push(Teacher.new(age, specialization,
-                                  name))
+    new_teacher = Teacher.new(age, specialization, name: name)
+    unless arr_person.include?(Teacher.new(age, specialization, name: name))
+      arr_person.push(Teacher.new(age, specialization, name: name))
     end
     print "\n Teacher with Name: ", new_teacher.name, ' Specialization: ', new_teacher.specialization, ' Age: ',
           new_teacher.age
@@ -142,10 +142,8 @@ class App
 
   def run
     display = ["Welcome to school library App!\n\n", 'Please Choose an option by entering a number',
-
                '1 - List all books', '2 - List all people', '3 - Create a person', '4 - Create a book',
                '5 - Create rental', '6 - List all rentals for a given person id', '7 - Exit']
-
     display.each do |ui|
       puts ui
     end
